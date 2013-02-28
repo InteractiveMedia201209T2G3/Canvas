@@ -1,0 +1,163 @@
+
+<!doctype html>
+
+<html>
+  <head>
+		<title>HTML5 Canvas</title>		
+	</head>
+		<body>
+	
+			<canvas id="myCanvas2" width="800" height="800"style="border:1px solid #000000;">
+			</canvas>
+			
+			
+			<script>
+			// arc
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(300,210,200,1*Math.PI,2*Math.PI);
+			ctx.lineWidth = 8;
+			// line color
+			ctx.strokeStyle = 'black';
+			ctx.stroke();
+			</script>
+			
+			<script>
+			// side left arc
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(90,230,40,.5*Math.PI,1.5*Math.PI);
+			ctx.lineWidth = 5;
+			// line color
+			ctx.strokeStyle = 'black';
+			ctx.stroke();
+			</script>
+			
+			<script>
+			// side left square
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.fillRect(90,180,30,100);
+			ctx.lineWidth = 10;
+			// line color
+			ctx.strokeStyle = 'red';
+			ctx.stroke();
+			</script>
+			
+			<script>
+			// side right square
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.fillRect(480,180,30,100);
+			ctx.lineWidth = 10;
+			// line color
+			ctx.strokeStyle = 'black';
+			ctx.stroke();
+			</script>
+			
+			<script>
+			// side right arc
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.strokeStyle = 'black';
+			ctx.arc(510,230,40,1.5*Math.PI,.5*Math.PI);
+			ctx.lineWidth = 5;
+			ctx.stroke();
+			</script>
+			
+			<script>
+			// side view square
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.strokeStyle = 'red';
+			ctx.strokeRect(260,500,100,100);
+			ctx.stoke()
+			ctx.fill();
+			
+			</script>
+			
+		
+			
+			<script>
+			// SIDE VIEW
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(310,550,50,0*Math.PI,2*Math.PI);
+			ctx.lineWidth = 5;
+			// line color
+			ctx.strokeStyle = 'black';
+			ctx.fill();
+			context.rotate (Math.PI / 1.57);
+			</script>
+			
+			
+			<script>
+			// text 
+			
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.font = '70pt Helvetica';
+			ctx.fillStyle = 'red';
+			ctx.fillText('b', 285, 580);
+			
+			</script>
+			
+			
+			<script>
+			// side view arc
+			
+			var c=document.getElementById("myCanvas2");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.moveTo(300,500);
+			ctx.lineTo(320,500);
+			ctx.lineTo(335,310);
+			ctx.lineTo(285,310);
+			ctx.lineWidth = 5;
+			ctx.fillStyle = 'black';
+			ctx.closePath();
+			ctx.fill();
+			context.rotate (Math.PI / 1.57);
+			</script>
+			
+			
+			<canvas id="myCanvas3" width="200" height="200"style="border:1px solid #000000;">
+			</canvas>
+			<script>
+			// text 
+			
+			var c=document.getElementById("myCanvas3");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(30,50,20,0*Math.PI,2*Math.PI);
+			ctx.lineWidth = 5;
+			// line color
+			ctx.strokeStyle = 'black';
+			ctx.fill();
+			
+			var c=document.getElementById("myCanvas3");
+			var ctx=c.getContext("2d");
+			ctx.beginPath();
+			ctx.moveTo(30,50);
+			ctx.lineTo(32,50);
+			ctx.lineTo(33,31);
+			ctx.lineTo(28,31);
+			ctx.lineWidth = 5;
+			ctx.fillStyle = 'black';
+			ctx.closePath();
+			ctx.fill();
+			context.rotate (Math.PI / 1.57);
+			</script>
+			
+	
+		</body>
+	
+
+
+</html>
