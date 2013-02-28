@@ -1,8 +1,7 @@
-
 <!doctype html>
 
 <html>
-  <head>
+	<head>
 		<title>HTML5 Canvas</title>		
 	</head>
 		<body>
@@ -70,25 +69,36 @@
 			ctx.stroke();
 			</script>
 			
+			
+			
+				// SIDE VIEW//
+			
+			
 			<script>
 			// side view square
+			//This needs to be a function.
+			var ctxdegrees = 90;
+			ctx.rotate (ctxdegrees*Math.PI/180);
 			var c=document.getElementById("myCanvas2");
 			var ctx=c.getContext("2d");
 			ctx.strokeStyle = 'red';
-			ctx.strokeRect(260,500,100,100);
+			ctx.strokeRect(260,180,100,100);
 			ctx.stoke()
 			ctx.fill();
 			
-			</script>
+			//Shane Make me a function!
+			Function {~~
+			This function changes ctxdegrees to 0 on click;
+			}		</script>
 			
-		
-			
+
 			<script>
 			// SIDE VIEW
 			var c=document.getElementById("myCanvas2");
 			var ctx=c.getContext("2d");
+			
 			ctx.beginPath();
-			ctx.arc(310,550,50,0*Math.PI,2*Math.PI);
+			ctx.arc(310,230,50,0*Math.PI,2*Math.PI);
 			ctx.lineWidth = 5;
 			// line color
 			ctx.strokeStyle = 'black';
@@ -99,13 +109,11 @@
 			
 			<script>
 			// text 
-			
 			var c=document.getElementById("myCanvas2");
 			var ctx=c.getContext("2d");
 			ctx.font = '70pt Helvetica';
 			ctx.fillStyle = 'red';
-			ctx.fillText('b', 285, 580);
-			
+			ctx.fillText('b', 285, 260);
 			</script>
 			
 			
@@ -115,10 +123,10 @@
 			var c=document.getElementById("myCanvas2");
 			var ctx=c.getContext("2d");
 			ctx.beginPath();
-			ctx.moveTo(300,500);
-			ctx.lineTo(320,500);
-			ctx.lineTo(335,310);
-			ctx.lineTo(285,310);
+			ctx.moveTo(300,185);
+			ctx.lineTo(320,185);
+			ctx.lineTo(335,5);
+			ctx.lineTo(285,5);
 			ctx.lineWidth = 5;
 			ctx.fillStyle = 'black';
 			ctx.closePath();
@@ -127,37 +135,40 @@
 			</script>
 			
 			
-			<canvas id="myCanvas3" width="200" height="200"style="border:1px solid #000000;">
+			<canvas id="myCanvas3" width="800" height="800"style="border:1px solid #000000;">
 			</canvas>
+			
 			<script>
-			// text 
-			
 			var c=document.getElementById("myCanvas3");
 			var ctx=c.getContext("2d");
-			ctx.beginPath();
-			ctx.arc(30,50,20,0*Math.PI,2*Math.PI);
-			ctx.lineWidth = 5;
-			// line color
-			ctx.strokeStyle = 'black';
-			ctx.fill();
 			
-			var c=document.getElementById("myCanvas3");
-			var ctx=c.getContext("2d");
+			ctx.rotate (90*Math.PI/180);
 			ctx.beginPath();
-			ctx.moveTo(30,50);
-			ctx.lineTo(32,50);
-			ctx.lineTo(33,31);
-			ctx.lineTo(28,31);
+			ctx.moveTo(150,150);
+			ctx.lineTo(300,150);
+			ctx.lineTo(250,400);
+			ctx.lineTo(200,400);
 			ctx.lineWidth = 5;
 			ctx.fillStyle = 'black';
 			ctx.closePath();
 			ctx.fill();
-			context.rotate (Math.PI / 1.57);
+		
 			</script>
 			
+			
+			
+			// rotate 45 degrees clockwise
+      ctx.rotate(Math.PI / -4);
+			
+			// translate context to center of canvas
+      context.translate(canvas.width / 2, canvas.height / 2);
+
+      // rotate 45 degrees clockwise
+      context.rotate(Math.PI / 4);
 	
 		</body>
 	
 
 
 </html>
+
