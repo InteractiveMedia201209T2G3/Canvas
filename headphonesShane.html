@@ -9,94 +9,84 @@
 			<canvas id="myCanvas2" width="800" height="800"style="border:1px solid #000000;">
 			</canvas>
 			
+
 			
 			<script>
+			//FRONT VIEW
 			// arc
+			/* Variables and function */
+
+			function front(){
 			var c=document.getElementById("myCanvas2");
 			var ctx=c.getContext("2d");
+
+
 			ctx.beginPath();
 			ctx.arc(300,210,200,1*Math.PI,2*Math.PI);
 			ctx.lineWidth = 8;
 			// line color
 			ctx.strokeStyle = 'black';
 			ctx.stroke();
-			</script>
-			
-			<script>
+		
+
 			// side left arc
-			var c=document.getElementById("myCanvas2");
-			var ctx=c.getContext("2d");
 			ctx.beginPath();
 			ctx.arc(90,230,40,.5*Math.PI,1.5*Math.PI);
 			ctx.lineWidth = 5;
 			// line color
 			ctx.strokeStyle = 'black';
 			ctx.stroke();
-			</script>
-			
-			<script>
+
 			// side left square
-			var c=document.getElementById("myCanvas2");
-			var ctx=c.getContext("2d");
+		
 			ctx.beginPath();
 			ctx.fillRect(90,180,30,100);
 			ctx.lineWidth = 10;
 			// line color
 			ctx.strokeStyle = 'red';
 			ctx.stroke();
-			</script>
-			
-			<script>
+
 			// side right square
-			var c=document.getElementById("myCanvas2");
-			var ctx=c.getContext("2d");
 			ctx.beginPath();
 			ctx.fillRect(480,180,30,100);
 			ctx.lineWidth = 10;
 			// line color
 			ctx.strokeStyle = 'black';
 			ctx.stroke();
-			</script>
-			
-			<script>
+
 			// side right arc
-			var c=document.getElementById("myCanvas2");
-			var ctx=c.getContext("2d");
+
 			ctx.beginPath();
 			ctx.strokeStyle = 'black';
 			ctx.arc(510,230,40,1.5*Math.PI,.5*Math.PI);
 			ctx.lineWidth = 5;
 			ctx.stroke();
+		}
+
+			//FRONT VIEW ENDS
 			</script>
 			
 			
 			
-				// SIDE VIEW//
 			
+			<!-- SIDE VIEW -->
 			
 			<script>
+			function side(){
+
 			// side view square
 			//This needs to be a function.
-			var ctxdegrees = 90;
-			ctx.rotate (ctxdegrees*Math.PI/180);
+
+			/*Variables Declaration*/
 			var c=document.getElementById("myCanvas2");
 			var ctx=c.getContext("2d");
+			var ctxdegrees = 90;
+			ctx.rotate (ctxdegrees*Math.PI/180);
 			ctx.strokeStyle = 'red';
 			ctx.strokeRect(260,180,100,100);
 			ctx.stoke()
 			ctx.fill();
-			
-			//Shane Make me a function!
-			Function {~~
-			This function changes ctxdegrees to 0 on click;
-			}		</script>
-			
 
-			<script>
-			// SIDE VIEW
-			var c=document.getElementById("myCanvas2");
-			var ctx=c.getContext("2d");
-			
 			ctx.beginPath();
 			ctx.arc(310,230,50,0*Math.PI,2*Math.PI);
 			ctx.lineWidth = 5;
@@ -104,24 +94,16 @@
 			ctx.strokeStyle = 'black';
 			ctx.fill();
 			context.rotate (Math.PI / 1.57);
-			</script>
-			
-			
-			<script>
+
 			// text 
-			var c=document.getElementById("myCanvas2");
-			var ctx=c.getContext("2d");
+
 			ctx.font = '70pt Helvetica';
 			ctx.fillStyle = 'red';
 			ctx.fillText('b', 285, 260);
-			</script>
 			
-			
-			<script>
 			// side view arc
 			
-			var c=document.getElementById("myCanvas2");
-			var ctx=c.getContext("2d");
+
 			ctx.beginPath();
 			ctx.moveTo(300,185);
 			ctx.lineTo(320,185);
@@ -131,10 +113,48 @@
 			ctx.fillStyle = 'black';
 			ctx.closePath();
 			ctx.fill();
-			context.rotate (Math.PI / 1.57);
+			ctx.rotate (Math.PI / 1.57);
+		}
+
+		 // bind event handler to clear button to reset canvas
+      document.getElementById('clear').addEventListener('click', function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }, false);
+
+      /* Try another reset*/
+      function reset(){
+      	var c=document.getElementById("myCanvas2");
+				var ctx=c.getContext("2d");
+      	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      }
+
 			</script>
-			
-			
+					<!-- SIDE VIEW ENDS --> 
+
+
+		
+
+
+
+
+
+			<form>
+				<input type="button" value="Front View" onclick="front()"> <!-- Working! -->
+				<input type="button" id="clear" value="Clear"> <!-- Not Working! -->
+				<input type="button" value="Reset" onclick="reset()"> <!-- Not Working! -->
+			</form>
+
+			<form>
+				<input type="button" value="Side View" onclick="side()">  <!-- Not Working! -->
+			</form>
+
+
+
+
+			<!-- Whats all this stuff??? -->
+			<!-- I'm going to comment it out for the moment -->
+			<!--  
 			<canvas id="myCanvas3" width="800" height="800"style="border:1px solid #000000;">
 			</canvas>
 			
@@ -165,7 +185,7 @@
 
       // rotate 45 degrees clockwise
       context.rotate(Math.PI / 4);
-	
+					-->
 		</body>
 	
 
