@@ -2,12 +2,32 @@
 
 <html>
   <head>
+    <style type="text/css">
+    .wrap{
+      margin: 0 auto;
+      width: 960px;
+      text-align: center;
+    }
+    h1{
+      font-family: 'Helvetica', sans-serif;
+      font-size: 3em;
+    }
+
+    .margery{
+      margin-bottom: 2em;
+    }
+
+    </style>
+
 <title>HTML5 Canvas</title>
 <link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<div class="wrap">
 
-<canvas id="myCanvas2" width="800" height="500"style="border:1px solid #000000;">
+<h1>HEADPHONES!!</h1>
+
+<canvas id="myCanvas2" width="700" height="400"style="border:0;">
 </canvas>
 
 <h1 style="font-family:geo;">Push buttons to operate</h1>
@@ -17,10 +37,16 @@
 // arc
 /* Variables and function */
 
-function front(){
 var c=document.getElementById("myCanvas2");
 var ctx=c.getContext("2d");
 
+function reset1(){
+       ctx.clearRect(0, 0, c.width, c.height);
+      }
+
+function front(){
+
+  reset1();
 
 ctx.beginPath();
 ctx.arc(300,210,200,1*Math.PI,2*Math.PI);
@@ -31,9 +57,12 @@ ctx.stroke();
 
 
 // side left square
-
 ctx.beginPath();
-ctx.fillRect(90,180,30,100);
+var grd=ctx.createLinearGradient(0,400,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.fillRect(90,150,40,160);
 ctx.lineWidth = 10;
 // line color
 ctx.strokeStyle = 'black';
@@ -42,17 +71,18 @@ ctx.stroke();
 ctx.fillStyle = 'red';
 ctx.fill();
 ctx.beginPath();
-ctx.fillRect(80,190,10,80);
+ctx.fillRect(80,180,10,100);
 ctx.lineWidth = 10;
 // line color
-ctx.fillStyle = 'black';
-ctx.fill();
+
 
 // side right square
 ctx.beginPath();
-ctx.fillStyle = 'black';
-ctx.fill();
-ctx.fillRect(480,180,30,100);
+var grd=ctx.createLinearGradient(0,400,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.fillRect(475,150,40,160);
 ctx.lineWidth = 10;
 // line color
 
@@ -60,7 +90,7 @@ ctx.lineWidth = 10;
 ctx.fillStyle = 'red';
 ctx.fill();
 ctx.beginPath();
-ctx.fillRect(510,190,10,80);
+ctx.fillRect(515,180,10,100);
 ctx.lineWidth = 10;
 // line color
 ctx.fillStyle = 'black';
@@ -71,9 +101,6 @@ ctx.fill();
 //FRONT VIEW ENDS
 </script>
 
-
-
-
 <!-- SIDE VIEW -->
 
 <script>
@@ -83,35 +110,47 @@ function side(){
 //This needs to be a function.
 
 /*Variables Declaration*/
-var c=document.getElementById("myCanvas2");
-var ctx=c.getContext("2d");
-
+reset1();
 
 
 ctx.beginPath();
+var grd=ctx.createLinearGradient(0,400,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
 ctx.arc(310,230,90,0*Math.PI,2*Math.PI);
 ctx.lineWidth = 2;
-ctx.fillStyle = 'blue';
+
 ctx.fill();
 
+
 ctx.beginPath();
+var grd=ctx.createLinearGradient(0,300,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+
 ctx.arc(310,230,80,0*Math.PI,2*Math.PI);
 ctx.lineWidth = 5;
 ctx.strokeStyle = 'black';
 ctx.stroke();
-ctx.fillStyle = 'red';
+
 ctx.fill();
 
 ctx.beginPath();
 ctx.arc(310,230,60,0*Math.PI,2*Math.PI);
 ctx.lineWidth = 2;
-ctx.fillStyle = 'yellow';
+ctx.fillStyle = 'red';
 ctx.fill();
 
 ctx.beginPath();
+var grd=ctx.createLinearGradient(0,400,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
 ctx.arc(310,230,50,0*Math.PI,2*Math.PI);
 ctx.lineWidth = 2;
-ctx.fillStyle = 'green';
+
 ctx.fill();
 
 ctx.font = '102px geo';
@@ -134,18 +173,7 @@ ctx.fill();
 
 }
 
-// bind event handler to clear button to reset canvas
-      document.getElementById('clear').addEventListener('click', function() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      }, false);
 
-      /* Try another reset*/
-      function reset(){
-       var c=document.getElementById("myCanvas2");
-var ctx=c.getContext("2d");
-       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      }
 
 </script>
 <!-- SIDE VIEW ENDS -->
@@ -154,22 +182,18 @@ var ctx=c.getContext("2d");
 
 
 
-
-
-
 <form>
 <input type="button" value="Front View" onclick="front()"> <!-- Working! -->
-<input type="button" id="clear" value="Clear"> <!-- Not Working! -->
-<input type="button" value="Reset" onclick="reset()"> <!-- Not Working! -->
+<input type="button" value="Reset1" onclick="reset1()"> <!-- Not Working! -->
 </form>
 
-<form>
+<form class="margery">
 <input type="button" value="Side View" onclick="side()"> <!-- Not Working! -->
 </form>
 
 
 
--->
+</div>
 </body>
 
 
