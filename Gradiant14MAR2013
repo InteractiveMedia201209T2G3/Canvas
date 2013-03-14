@@ -1,0 +1,189 @@
+<!doctype html>
+
+<html>
+  <head>
+<title>HTML5 Canvas</title>
+<link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<canvas id="myCanvas2" width="800" height="500"style="border:1px solid #000000;">
+</canvas>
+
+<h1 style="font-family:geo;">Push buttons to operate</h1>
+
+<script>
+//FRONT VIEW
+// arc
+/* Variables and function */
+
+function front(){
+var c=document.getElementById("myCanvas2");
+var ctx=c.getContext("2d");
+
+
+ctx.beginPath();
+ctx.arc(300,210,200,1*Math.PI,2*Math.PI);
+ctx.lineWidth = 8;
+// line color
+ctx.strokeStyle = 'black';
+ctx.stroke();
+
+
+// side left square
+ctx.beginPath();
+var grd=ctx.createLinearGradient(0,400,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.fillRect(90,150,40,160);
+ctx.lineWidth = 10;
+// line color
+ctx.strokeStyle = 'black';
+ctx.stroke();
+
+ctx.fillStyle = 'red';
+ctx.fill();
+ctx.beginPath();
+ctx.fillRect(80,180,10,100);
+ctx.lineWidth = 10;
+// line color
+
+
+// side right square
+ctx.beginPath();
+var grd=ctx.createLinearGradient(0,400,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.fillRect(475,150,40,160);
+ctx.lineWidth = 10;
+// line color
+
+
+ctx.fillStyle = 'red';
+ctx.fill();
+ctx.beginPath();
+ctx.fillRect(515,180,10,100);
+ctx.lineWidth = 10;
+// line color
+ctx.fillStyle = 'black';
+ctx.fill();
+
+}
+
+//FRONT VIEW ENDS
+</script>
+
+<!-- SIDE VIEW -->
+
+<script>
+function side(){
+
+// side view square
+//This needs to be a function.
+
+/*Variables Declaration*/
+var c=document.getElementById("myCanvas2");
+var ctx=c.getContext("2d");
+
+
+
+ctx.beginPath();
+var grd=ctx.createLinearGradient(0,400,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.arc(310,230,90,0*Math.PI,2*Math.PI);
+ctx.lineWidth = 2;
+
+ctx.fill();
+
+
+ctx.beginPath();
+var grd=ctx.createLinearGradient(0,300,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+
+ctx.arc(310,230,80,0*Math.PI,2*Math.PI);
+ctx.lineWidth = 5;
+ctx.strokeStyle = 'black';
+ctx.stroke();
+
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(310,230,60,0*Math.PI,2*Math.PI);
+ctx.lineWidth = 2;
+ctx.fillStyle = 'red';
+ctx.fill();
+
+ctx.beginPath();
+var grd=ctx.createLinearGradient(0,400,0,0);
+grd.addColorStop(0,"black");
+grd.addColorStop(1,"white");
+ctx.fillStyle=grd;
+ctx.arc(310,230,50,0*Math.PI,2*Math.PI);
+ctx.lineWidth = 2;
+
+ctx.fill();
+
+ctx.font = '102px geo';
+ctx.fillStyle = 'black';
+ctx.fillText('b', 285, 260);
+
+// side view arc
+
+
+ctx.beginPath();
+ctx.moveTo(300,180);
+ctx.lineTo(320,180);
+ctx.lineTo(335,5);
+ctx.lineTo(285,5);
+ctx.lineWidth = 5;
+ctx.fillStyle = 'black';
+ctx.strokeStyle = 'black';
+ctx.closePath();
+ctx.fill();
+
+}
+
+// bind event handler to clear button to reset canvas
+      document.getElementById('clear').addEventListener('click', function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }, false);
+
+      /* Try another reset*/
+      function reset(){
+       var c=document.getElementById("myCanvas2");
+  	var ctx=c.getContext("2d");
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      }
+
+</script>
+<!-- SIDE VIEW ENDS -->
+
+
+
+
+
+<form>
+<input type="button" value="Front View" onclick="front()"> <!-- Working! -->
+<input type="button" id="clear" value="Clear"> <!-- Not Working! -->
+<input type="button" value="Reset" onclick="reset()"> <!-- Not Working! -->
+</form>
+
+<form>
+<input type="button" value="Side View" onclick="side()"> <!-- Not Working! -->
+</form>
+
+
+
+
+</body>
+
+
+
+</html>
