@@ -1,0 +1,161 @@
+<!doctype html>
+
+<html>
+  <head>
+<title>HTML5 Canvas</title>
+<link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<canvas id="myCanvas2" width="800" height="500"style="border:1px solid #000000;">
+</canvas>
+
+<h1 style="font-family:geo;">Push buttons to operate</h1>
+
+<script>
+//FRONT VIEW
+// arc
+/* Variables and function */
+
+function front(){
+var c=document.getElementById("myCanvas2");
+var ctx=c.getContext("2d");
+
+
+ctx.beginPath();
+ctx.arc(300,210,200,1*Math.PI,2*Math.PI);
+ctx.lineWidth = 8;
+// line color
+ctx.strokeStyle = 'black';
+ctx.stroke();
+
+
+// side left square
+
+ctx.beginPath();
+ctx.fillRect(90,180,30,100);
+ctx.lineWidth = 10;
+// line color
+ctx.strokeStyle = 'black';
+ctx.stroke();
+
+ctx.fillStyle = 'red';
+ctx.fill();
+ctx.beginPath();
+ctx.fillRect(80,190,10,80);
+ctx.lineWidth = 10;
+// line color
+ctx.fillStyle = 'black';
+ctx.fill();
+
+// side right square
+ctx.beginPath();
+ctx.fillStyle = 'black';
+ctx.fill();
+ctx.fillRect(480,180,30,100);
+ctx.lineWidth = 10;
+// line color
+
+
+ctx.fillStyle = 'red';
+ctx.fill();
+ctx.beginPath();
+ctx.fillRect(510,190,10,80);
+ctx.lineWidth = 10;
+// line color
+ctx.fillStyle = 'black';
+ctx.fill();
+
+}
+
+//FRONT VIEW ENDS
+</script>
+
+
+
+
+<!-- SIDE VIEW -->
+
+<script>
+function side(){
+
+// side view square
+//This needs to be a function.
+
+/*Variables Declaration*/
+var c=document.getElementById("myCanvas2");
+var ctx=c.getContext("2d");
+ctx.fillStyle = 'black';
+ctx.lineWidth = 5;
+ctx.fillRect(260,180,100,100);
+
+
+ctx.beginPath();
+ctx.arc(310,230,40,0*Math.PI,2*Math.PI);
+ctx.lineWidth = 8;
+// line color
+ctx.strokeStyle = 'red';
+ctx.stroke();
+// text
+
+ctx.font = '102px geo';
+ctx.fillStyle = 'red';
+ctx.fillText('b', 285, 260);
+
+// side view arc
+
+
+ctx.beginPath();
+ctx.moveTo(300,180);
+ctx.lineTo(320,180);
+ctx.lineTo(335,5);
+ctx.lineTo(285,5);
+ctx.lineWidth = 5;
+ctx.fillStyle = 'black';
+ctx.strokeStyle = 'black';
+ctx.closePath();
+ctx.fill();
+
+}
+
+// bind event handler to clear button to reset canvas
+      document.getElementById('clear').addEventListener('click', function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }, false);
+
+      /* Try another reset*/
+      function reset(){
+       var c=document.getElementById("myCanvas2");
+var ctx=c.getContext("2d");
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      }
+
+</script>
+<!-- SIDE VIEW ENDS -->
+
+
+
+
+
+
+
+
+<form>
+<input type="button" value="Front View" onclick="front()"> <!-- Working! -->
+<input type="button" id="clear" value="Clear"> <!-- Not Working! -->
+<input type="button" value="Reset" onclick="reset()"> <!-- Not Working! -->
+</form>
+
+<form>
+<input type="button" value="Side View" onclick="side()"> <!-- Not Working! -->
+</form>
+
+
+
+-->
+</body>
+
+
+
+</html>
