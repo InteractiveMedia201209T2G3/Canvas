@@ -1,10 +1,21 @@
 
 HEADPHONES Two Views in HTML5 Canvas
 
-
+INTRODUCTION
 The Project is to draw Headphones using HTML5 Canvas element and display the graphic as front and side view using the function of rotating those two elements.
 This is a team work project and all four of us have incorporated into the design process.
 We have created the drawing on the Canvas inside the java script and drew elements inside the script.
 We have added such element as rectangles and arcs for front view and circles, squares, lines for side view. Inside the side view circle we have added letter ‘B’ as a brand name of the headphones.
 
 Once we had our basic structure for our elements we started to style it, adding colours and gradients as per graphic images designed initially in Adobe Illustrator.
+
+DESIGN (Paul)
+
+TRANSFERRING DESIGN CONCEPT TO HTML5 CANVAS (ciaran)
+We took Pauls design from illustrator and divided it up into its individual elements. 
+The front view consists of a large arc with two rectangles either side. 
+The side view however is more elaborate with the earpiece alone consisting of 4 consecutive circles which contain different fills and gradients in order to give depth preperception. 
+We then positioned a letter "b" at the centre of the innermost circle by pulling in a google font (geo) that suited the aesthetic of the overall image.
+The headphone band is created using a trapezoid shape which intersects with the earpiece. This can not be seen from the front view as the band is countersunk into the side of the earpiece.
+
+IMPLEMENTING JAVASCRIPT FUNCTIONS (Shane)
