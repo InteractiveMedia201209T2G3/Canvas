@@ -1,0 +1,13 @@
+To create the headphones and give them a somewhat realistic 'look and feel' we used Illustrator to create a front, back, left and right view of a very basic set of headphones using simple vector shapes (concentric circles, curves etcs). We set up the illustrator document 300px by 300px to closely mirror the size of the HTML Canvas 5. The strategy behind this is that if we could identify the X and Y co-ordinates of the Headphones on the Illustrator grid this would make it more consistent when creating it using the Java Script.
+
+One approach that we initially explored was if we created just one 'half' of the headphones we could mirror that along the x plane and merge the two to form on set of headphones. This was how I approached it illustrator, a quick reference of a set of existing branded headphones helped me form a picture of dimension and detail.
+
+I began by creating the right hand side profile (see image one). I created 4 circles of various sizes ranging from 40px to the biggest of 70px. Three of the circles will be filled in with mono gradients to create a pseudo 3d look. The second largest circle is a heavy stroked circle, this is to create the illusion of details. If we had more experience we could attempt at using some CSS3 transparency which would  give a more detailed look. 
+![Image 1](https://f.cloud.github.com/assets/3504595/283289/2e6447ce-91aa-11e2-8c02-cccb080d8158.png)
+
+Second part of drawing the right hand side was to add in the strut that connects both sides, if this is been viewed from a side profile it would only have a simple form.
+![Image 2](https://f.cloud.github.com/assets/3504595/283360/e92c58e8-91ab-11e2-89bc-fb998da219ee.png)
+
+We used a typeface from Google fonts to give the Headphones a brand. 
+
+Front view of the headphones have 
