@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+
+  <style type="text/css">
+#slider-1{
+ margin-left: 20px;
+ margin-right: 20px;
+ float:left; 
+}
+
+#slider-2{
+ margin-left: 20px;
+ margin-right: 20px;
+ float:left; 
+}
+
+#slider-3{
+ margin-left: 20px;
+ margin-right: 20px;
+ float:left; 
+}
+
+
+  </style>
+  <meta charset="utf-8" />
+  <title>jQuery UI Slider - Vertical slider</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" /> 
+  
+  <script>function drawOnCanvas () {
+   var rgb =[
+       $('#slider-1').slider("value"),
+       $('#slider-2').slider("value"),
+       $('#slider-3').slider("value")
+   ];
+   var c = document.getElementById("myCanvas2");
+   var ctx = c.getContext("2d");
+   var color = "rgb("+ rgb.join(',') + ")" ;
+   ctx.fillStyle = color ;
+    console.log(rgb);
+   ctx.beginPath();
+   ctx.arc(100, 100, 100, 0, Math.PI*2, true);
+   ctx.closePath();
+   ctx.fill();
+}
+
+function createSlider(slider, boundTextField) {
+   slider.slider({
+      orientation: "vertical",
+      range: "min",
+      min: 0,
+      max: 255,
+      value: 0,
+      slide: function( event, ui ) {
+        boundTextField.val( ui.value );
+        drawOnCanvas();
+      }
+  })
+}
+
+$(function() {
+    createSlider($( "#slider-1" ), $( "#amount1" ));
+    createSlider($( "#slider-2" ), $( "#amount2" ));
+    createSlider($( "#slider-3" ), $( "#amount3" ));    
+});
+
+/*
+var textfield = document.getElementById('amount1');
+
+textfield.onchange = function() {
+    console.log(this.value);
+  alert("I am an alert box!");
+} */</script>
+  
+  
+</head>
+<body>
+ 
+<p>
+  <input type="text" id="amount1"  />
+  <input type="text" id="amount2"  />
+  <input type="text" id="amount3"  />
+</p>
+  
+  
+
+ 
+<div id="slider-2" style="height: 200px;"></div>
+<div id="slider-1" style="height: 200px;"></div>
+<div id="slider-3" style="height: 200px;"></div>
+ 
+<canvas id="myCanvas2" width="200" height="200"style="border:1px solid #000000;">
+</canvas>
+  
+  
+</body>
+</html>
