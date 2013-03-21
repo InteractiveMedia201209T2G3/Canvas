@@ -35,15 +35,15 @@
        $('#slider-2').slider("value"),
        $('#slider-3').slider("value")
    ];
-   var c = document.getElementById("myCanvas2");
-   var ctx = c.getContext("2d");
+   var can = document.getElementById("myCanvas");
+   var contx = can.getContext("2d");
    var color = "rgb("+ rgb.join(',') + ")" ;
-   ctx.fillStyle = color ;
+   contx.fillStyle = color ;
     console.log(rgb);
-   ctx.beginPath();
-   ctx.arc(100, 100, 100, 0, Math.PI*2, true);
-   ctx.closePath();
-   ctx.fill();
+   contx.beginPath();
+   contx.arc(100, 100, 100, 0, Math.PI*2, true);
+   contx.closePath();
+   contx.fill();
 }
 
 function createSlider(slider, boundTextField) {
@@ -91,7 +91,7 @@ textfield.onchange = function() {
 <div id="slider-1" style="height: 200px;"></div>
 <div id="slider-3" style="height: 200px;"></div>
  
-<canvas id="myCanvas2" width="200" height="200"style="border:1px solid #000000;">
+<canvas id="myCanvas" width="200" height="200"style="border:1px solid #000000;">
 </canvas>
   
   

@@ -17,7 +17,13 @@
       margin-bottom: 2em;
     }
 
-    #slider-1{
+    </style>
+
+<title>HTML5 Canvas</title>
+<link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
+
+  <style type="text/css">
+#slider-1{
  margin-left: 20px;
  margin-right: 20px;
  float:left; 
@@ -35,27 +41,33 @@
  float:left; 
 }
 
-    </style>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+
+  </style>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" /> 
   
-  <script>function drawOnCanvas () {
+  <script>
+
+	var color = "rgb(0,0,0)" ;
+	var view = 0;
+
+  function drawOnCanvas () {
    var rgb =[
        $('#slider-1').slider("value"),
        $('#slider-2').slider("value"),
        $('#slider-3').slider("value")
    ];
-   var c = document.getElementById("myCanvas2");
-   var ctx = c.getContext("2d");
-   var color = "rgb("+ rgb.join(',') + ")" ;
-   ctx.fillStyle = color ;
-    console.log(rgb);
-   ctx.beginPath();
-   ctx.arc(100, 100, 100, 0, Math.PI*2, true);
-   ctx.closePath();
-   ctx.fill();
+   var can = document.getElementById("myCanvas");
+   var contx = can.getContext("2d");
+   color = "rgb("+ rgb.join(',') + ")" ;
+   if (view == 1)
+   {side();}
+   else
+   {front();}
+   
 }
 
 function createSlider(slider, boundTextField) {
@@ -85,17 +97,16 @@ textfield.onchange = function() {
     console.log(this.value);
   alert("I am an alert box!");
 } */</script>
-  
 
-<title>HTML5 Canvas</title>
-<link href='http://fonts.googleapis.com/css?family=Geo' rel='stylesheet' type='text/css'>
+
+
 </head>
 <body>
 <div class="wrap">
 
 <h1>HEADPHONES!!</h1>
 
-<canvas id="myCanvas" width="700" height="400"style="border:0;">
+<canvas id="myCanvas2" width="700" height="400"style="border:0;">
 </canvas>
 
 <h1 style="font-family:geo;">Push buttons to operate</h1>
@@ -105,7 +116,7 @@ textfield.onchange = function() {
 // arc
 /* Variables and function */
 
-var c=document.getElementById("myCanvas");
+var c=document.getElementById("myCanvas2");
 var ctx=c.getContext("2d");
 
 function reset1(){
@@ -136,7 +147,7 @@ ctx.lineWidth = 10;
 ctx.strokeStyle = 'black';
 ctx.stroke();
 
-ctx.fillStyle = colour;
+ctx.fillStyle = color;
 ctx.fill();
 ctx.beginPath();
 ctx.fillRect(80,180,10,100);
@@ -172,6 +183,8 @@ ctx.fill();
 <!-- SIDE VIEW -->
 
 <script>
+
+
 function side(){
 
 // side view square
@@ -208,7 +221,7 @@ ctx.fill();
 ctx.beginPath();
 ctx.arc(310,230,60,0*Math.PI,2*Math.PI);
 ctx.lineWidth = 2;
-ctx.fillStyle = colour;
+ctx.fillStyle = color;
 ctx.fill();
 
 ctx.beginPath();
@@ -222,7 +235,7 @@ ctx.lineWidth = 2;
 ctx.fill();
 
 ctx.font = '102px geo';
-ctx.fillStyle = 'black';
+ctx.fillStyle = color;
 ctx.fillText('b', 285, 260);
 
 // side view arc
@@ -241,7 +254,7 @@ ctx.fill();
 
 }
 
-
+  alert(color);
 
 </script>
 <!-- SIDE VIEW ENDS -->
@@ -251,19 +264,17 @@ ctx.fill();
 
 
 <form>
-<input type="button" value="Front View" onclick="front()"> <!-- Working! -->
+<input type="button" value="Front View" onclick="front(); view=2"> <!-- Working! -->
 <input type="button" value="Reset1" onclick="reset1()"> <!-- Not Working! -->
 </form>
 
 <form class="margery">
-<input type="button" value="Side View" onclick="side()"> <!-- Not Working! -->
+<input type="button" value="Side View" onclick="side(); view=1"> <!-- Not Working! -->
 </form>
 
 
 
 </div>
-
-
 <p>
   <input type="text" id="amount1"  />
   <input type="text" id="amount2"  />
@@ -277,10 +288,10 @@ ctx.fill();
 <div id="slider-1" style="height: 200px;"></div>
 <div id="slider-3" style="height: 200px;"></div>
  
-<canvas id="myCanvas2" width="200" height="200"style="border:1px solid #000000;">
+<canvas id="myCanvas" width="200" height="200"style="border:1px solid #000000;">
 </canvas>
   
-
+  
 
 
 </body>
